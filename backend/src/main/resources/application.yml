@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.1.216:5432/testdatabase
-    username: postgresuser
-    password: securepassword
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.PosgreSQLInnoDBDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     show-sql: true
     hibernate:

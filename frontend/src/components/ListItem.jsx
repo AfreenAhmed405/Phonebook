@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";  
 import '../styles/App.css';
+import { deleteTodo, updateTodo } from '../api';
 
 function ListItem({ item, setTodos }) {
 
@@ -24,19 +25,37 @@ function ListItem({ item, setTodos }) {
                     : todo
             )
         );
+
+        const toggleCompletion = !item.is_completed;
+        const updatedTodo = {id: item.id, title: item.title, is_completed: toggleCompletion}
+
+        updateTodo(item.id, updatedTodo)
+            .catch((error) => {
+                console.error("Could not update task", error);
+            });
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         setEditing(false);
+        const updatedTodo = {id: item.id, title: e.target.editTodo.value, is_completed: false}
+
+        updateTodo(item.id, updatedTodo)
+            .catch((error) => {
+                console.error("Could not update task", error);
+            });
     }
 
-    function editTodo() {
+    function handleUpdate() {
         setEditing(true);
     }
 
-    function deleteTodo() {
+    function handleDelete() {
         setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== item.id));
+        deleteTodo(item.id)
+            .catch((error) => {
+                console.error("Could not delete task", error);
+        });
     }
 
     function handleInputBlur() {
@@ -55,7 +74,7 @@ function ListItem({ item, setTodos }) {
                 editing ? (
                     <form className="edit-form" onSubmit={handleSubmit}>
                         <label htmlFor="edit-todo">
-                            <input ref={inputRef} type="text" name="edit-todo" id="edit-todo" defaultValue={item.title} onBlur={handleInputBlur} onChange={handleInputChange} />
+                            <input ref={inputRef} type="text" name="edit-todo" id="editTodo" defaultValue={item.title} onBlur={handleInputBlur} onChange={handleInputChange} />
                         </label>
                     </form>
                 ) : (
@@ -66,8 +85,8 @@ function ListItem({ item, setTodos }) {
                 )
             }
             <div className="icons col-2">
-                <i className="edit fa-regular fa-pen-to-square" onClick={editTodo}></i>&nbsp;
-                <i className="delete fa-regular fa-trash-can" onClick={deleteTodo}></i>
+                <i className="edit fa-regular fa-pen-to-square" onClick={handleUpdate}></i>&nbsp;
+                <i className="delete fa-regular fa-trash-can" onClick={handleDelete}></i>
             </div>
         </li>
     );

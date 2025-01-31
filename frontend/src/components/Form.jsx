@@ -1,20 +1,21 @@
 import React from "react";
-import '../styles/App.css';      
+import '../styles/App.css';
+import { createTodo } from '../api';
 
 function Form({ setTodos }) {
 
-    function generateId() {
-        return Math.floor(Date.now() + Math.random() * 1000000);
-    }
-
     function handleSubmit(e) {
         e.preventDefault();
-        const value = e.target.todo.value;
+        const newTodo = {title: e.target.todo.value, is_completed: false}
 
-        setTodos((prevTodos) => [
-            ...prevTodos,
-            { id: generateId(), title: value, is_completed: false }
-        ]);
+        createTodo(newTodo)
+            .then((response) => {
+                setTodos((prevTodos) => [
+                    ...prevTodos, response.data
+                ]);
+            }).catch((error) => {
+                console.error("Could not create task", error);
+            });
         e.target.reset();
     }
 

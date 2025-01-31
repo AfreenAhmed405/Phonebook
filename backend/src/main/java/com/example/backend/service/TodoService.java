@@ -29,7 +29,7 @@ public class TodoService {
         return todoDao.findById(id).orElseThrow(() -> new RuntimeException("Todo not found"));
     }
 
-    public void deleteTodo(Todo todo) {
-        todoDao.delete(todo);
+    public void deleteTodo(String id) {
+        todoDao.deleteById(id);
     }
 }

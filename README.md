@@ -10,10 +10,11 @@ This is a simple and interactive To-Do Web App built using React. It allows user
 - Mark Tasks as Completed: Track progress by marking tasks as completed.
 - Delete Tasks: Remove tasks that are no longer needed.
 - Responsive UI: Works well on both desktop and mobile devices.
-- Persistent Storage: Tasks are saved to the browser's local storage.
+- Persistent Storage: Tasks are saved to a database
 
 ## Technologies Used
 - **Frontend**:  React (for building the user interface)
 - **State Management** : React Hooks
 - **Styling**: CSS, Bootstrap
-- **Persistent Storage**: LocalStorage
+- **Backend**:  SpringBoot
+- **Database**:  Postgres

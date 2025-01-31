@@ -1,0 +1,140 @@
+.App {
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  line-height: 1
+}
+
+/* HEADER */
+
+h1 {
+  text-align: left;
+  font-size: xx-large !important;
+}
+  
+/* MANAGER */
+
+.card {
+  margin: 40px auto;
+  width: 450px;
+  border: 1px solid  #b9a883 !important;
+  border-radius: 10px !important;
+  padding: 15px;
+  background-color: transparent !important;
+}
+
+h2 {
+  font-weight: 400 !important;
+  font-size: 35px !important;
+}
+
+p {
+  font-size: x-large;
+}
+
+.card-text {
+  text-align: left;
+  padding-left: 40px !important;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #8ead38;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+}
+
+
+/* FORM */
+
+.todo_form {
+  margin: 40px auto;
+  width: 450px !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo_input {
+  width: 90%;
+  border: none;
+  background-color: #1f2937;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 14px !important;
+  color: white;
+}
+
+.todo_submit {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: -10px;
+  border: none;
+  background-color: #8ead38;
+  border-radius: 10px;
+  font-size: 25px !important;
+  font-weight: 400;
+}
+
+/* LIST */ 
+
+.todo_list {
+  margin: 0 auto;
+  width: 450px;
+}
+
+.empty {
+  font-size: medium;
+}
+
+
+/* LIST ITEM */
+
+.todo_card {
+  margin: 20px -32px;
+  width: 450px;
+  border: 1px solid #b9a883;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.check {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid rgb(28, 204, 122);
+  display: inline-flex;
+  flex-shrink: 0;
+  background-color: transparent;
+}
+
+.checked {
+  background-color: rgb(28, 204, 122);
+}
+
+.todo_text {
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.completed {
+  text-decoration: line-through !important;
+}
+
+.icons {
+  text-align: right !important;
+  color:#b9a883;
+  font-size: 25px !important;
+  cursor: pointer;
+}
